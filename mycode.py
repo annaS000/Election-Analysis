@@ -17,28 +17,31 @@ with open(file_to_load) as election_data:
     # Read the header row.
     headers = next(file_reader)
 
+    #Storing rows in a list
     rows = [i for i in file_reader]
         
-    # 2. Add to the total vote count.
+    # Total vote count
     total_votes = len(rows)
 
     #Make a list of all candidates who received votes
     candidates = list({i[2] for i in rows})
 
-# Function that takes in data and outputs dictionary of candidate and number of votes
+# Function that takes in data and returns dictionary of candidate and number of votes
 def voteChecker(rows):
         return dict((name, len([1 for i in rows if name in i])) for name in candidates)
 
 #Name dictionary for votes per candidate
 votesEach = voteChecker(rows)
 
-# #Calculate the percentage of votes each candidate won
-# 3. Calculate the percentage of votes.
+# Percentage of votes in a dictionary
 vote_percentage = dict((name, (float(votesEach[name]) / float(total_votes) * 100)) for name in candidates)
+
 # 4. Print the candidate name and percentage of votes.
 for name in candidates:
     print(f"{name}: received {vote_percentage[name]:.1f}% of the vote.")
 
-# #Choose the winner of the election based on popular vote (highest percentage)
+#Choose the winner of the election (highest percentage) 
 winner = [i for i, val in vote_percentage.items() if val == max([vote_percentage[i] for i in candidates])]
+
+# Print out the winner
 print(f"The winning candidate is {winner[0]}")
