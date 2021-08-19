@@ -36,12 +36,24 @@ votesEach = voteChecker(rows)
 # Percentage of votes in a dictionary
 vote_percentage = dict((name, (float(votesEach[name]) / float(total_votes) * 100)) for name in candidates)
 
-# 4. Print the candidate name and percentage of votes.
+# Print results
+print(f"************************\n")
+print(f"     Final Results\n")
+print(f"************************\n")
+
+#Print the candidate name and percentage of votes.
 for name in candidates:
-    print(f"{name}: received {vote_percentage[name]:.1f}% of the vote.")
+    print(f"{name}: {vote_percentage[name]:.1f}% ({votesEach[name]:,})\n")
 
 #Choose the winner of the election (highest percentage) 
-winner = [i for i, val in vote_percentage.items() if val == max([vote_percentage[i] for i in candidates])]
+winner = [i for i, val in vote_percentage.items() if val == max([vote_percentage[i] for i in candidates])][0]
 
-# Print out the winner
-print(f"The winning candidate is {winner[0]}")
+# Print out the winner and summary
+
+winning_candidate_summary = (
+    f"-------------------------\n"
+    f"Winner: {winner}\n"
+    f"Winning Vote Count: {votesEach[winner]:,}\n"
+    f"Winning Percentage: {vote_percentage[winner]:.1f}%\n"
+    f"-------------------------\n")
+print(winning_candidate_summary)
