@@ -38,7 +38,7 @@ vote_percentage = dict((name, (float(votesEach[name]) / float(total_votes) * 100
 # 4. Print the candidate name and percentage of votes.
 for name in candidates:
     print(f"{name}: received {vote_percentage[name]:.1f}% of the vote.")
-# print(vote_percentage)
 
 # #Choose the winner of the election based on popular vote (highest percentage)
-#winner = max([votePercentage[i] for i in candidates])
+winner = [i for i, val in vote_percentage.items() if val == max([vote_percentage[i] for i in candidates])]
+print(f"The winning candidate is {winner[0]}")
