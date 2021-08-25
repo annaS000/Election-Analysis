@@ -19,19 +19,21 @@ with open(file_to_load) as election_data:
 
     #Storing rows in a list
     rows = [i for i in file_reader]
-        
+
     # Total vote count
     total_votes = len(rows)
 
     #Make a list of all candidates who received votes
-    candidates = list({i[2] for i in rows})
-
+    candidates = list({i[2] for i in rows}) 
+ 
 # Function that takes in data and returns dictionary of candidate and number of votes
 def voteChecker(rows):
         return dict((name, len([1 for i in rows if name in i])) for name in candidates)
 
 #Name dictionary for votes per candidate
 votesEach = voteChecker(rows)
+
+print(votesEach)
 
 # Percentage of votes in a dictionary
 vote_percentage = dict((name, (float(votesEach[name]) / float(total_votes) * 100)) for name in candidates)
