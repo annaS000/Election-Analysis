@@ -1,7 +1,7 @@
 # **Election Analysis**
 ## **Overview** 
 ---
-
+## Purpose
 > Tom, a Colorado Board of Elections employee, has asked us to help conduct an election audit of U.S. Congressional precinct results in Colorado. After receiving the [CSV](https://github.com/annaS000/Election-Analysis/tree/main/Resources) file containing the data, we have been asked to find a list of results including:
 >* Total votes were cast in this congressional election
 >* A breakdown of the number of votes and the percentage of total votes for each county in the precinct
