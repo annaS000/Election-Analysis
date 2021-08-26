@@ -1,7 +1,7 @@
-# **PyPoll Election Audit**
+# **Election Audit**
 ## **Overview** 
 ### **Purpose**
-
+>
 ---
 ## Resources
 
@@ -28,7 +28,7 @@ Using a bulleted list, address the following election outcomes. Use images or ex
 
 The analysis of the election show that:
 
-* There were "x" votes cast in the election.
+* There were 3 votes cast in the election.
 * The candidates were:
     * Candidate 1
     * Candidate 2
