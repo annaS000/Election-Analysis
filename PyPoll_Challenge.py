@@ -23,31 +23,24 @@ with open(file_to_load) as election_data:
     # Total vote count
     total_votes = len(rows)
 
-    #Make a list of all candidates who received votes
-    candidates = list({i[2] for i in rows}) 
+    #Make a list (set) of all candidates who received votes
+    candidates = {i[2] for i in rows} 
     
-    # Create a county list and county votes dictionary.
-    counties =  list({i[1] for i in rows}) 
-
-# Function that takes in data and returns dictionary of candidate and number of votes for candidates
-def voteChecker1(rows):
-        return dict((name, len([1 for i in rows if name in i])) for name in candidates)
-
-# Function that takes in data and returns dictionary of candidate and number of votes for counties
-def voteChecker2(rows):
-        return dict((name, len([1 for i in rows if name in i])) for name in counties)
+    # Create a county list (set) and county votes dictionary.
+    counties =  {i[1] for i in rows} 
 
 # Name dictionary for votes per candidate and county
-votesEach1 = voteChecker1(rows)
-votesEach2 = voteChecker2(rows)
+votesEach1 = dict((name, len([1 for i in rows if name in i])) for name in candidates)
+votesEach2 = dict((name, len([1 for i in rows if name in i])) for name in counties)
+
 
 # Percentage of votes for candidates and counties in a dictionary
 vote_percentage1 = dict((name, (float(votesEach1[name]) / float(total_votes) * 100)) for name in candidates)
 vote_percentage2 = dict((name, (float(votesEach2[name]) / float(total_votes) * 100)) for name in counties)
 
 #Choose the winner and largest county turnout of the election (highest percentage) 
-winner = [i for i, val in vote_percentage1.items() if val == max([vote_percentage1[i] for i in candidates])][0]
-maxcounty = [i for i, val in vote_percentage2.items() if val == max([vote_percentage2[i] for i in counties])][0]
+winner = [i for i, j in vote_percentage1.items() if j == max(vote_percentage1[i] for i in candidates)][0]
+maxcounty = [i for i, j in vote_percentage2.items() if j == max(vote_percentage2[i] for i in counties)][0]
 
 with open(file_to_save, "w") as txt_file:
 # Print total votes to terminal
@@ -55,7 +48,8 @@ with open(file_to_save, "w") as txt_file:
         f"Election Results\n"
         f"------------------------\n"
         f"Total Votes: {total_votes:,}\n"
-        f"------------------------\n")
+        f"------------------------\n\n"
+        f"County Votes:\n")
     print(numvotes) 
 
     # Save total votes results to text file
