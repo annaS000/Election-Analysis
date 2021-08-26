@@ -1,4 +1,4 @@
-# **Election Analysis**
+# **Election-Audit Analysis**
 ## **Overview** 
 ---
 ## Purpose
@@ -148,8 +148,11 @@
 
 ---
 
-In a summary statement, provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.
+Thanks to Python the code created for this project is a simple way to find results quickly. By making a few adjustments, we can create a script that is adaptable and can read and write for any election the data is coming from. Having an efficient well-tested code to compute results can reduce the time it takes to conduct an analysis and can be used as a way to decrease human error. Additionally, [Python](https://www.python.org/about/) is one of the most popular, free, and open-source programming languages, making this code highly accessible to anyone that would like to use it.
+
 #### **Examples:**
-1. text
+1. A way to make a script reusable is to create a function that is not specific to the data. That way it can be used in any election regardless of where the election is being held, the amount of candidates running, or number of votes cast. This code can easily be converted into a function that will take in a data frame and return our results, as long as the columns are in the correct order. Check out my function for any election[here]()
+
+
 
 2. text
