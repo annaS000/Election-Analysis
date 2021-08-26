@@ -52,9 +52,9 @@
 >Keep in mind: each element in our list, `rows` is also a list itself! So, `rows` is a list of lists.
 
 * **The counties in this election were:**
-    * Jefferson
-    * Denver
-    * Arapahoe
+    * **Jefferson**
+    * **Denver**
+    * **Arapahoe**
 
         <space>
 
@@ -64,9 +64,9 @@
     >Our targeted index is equal to 1 because the county names are the 2nd element in each list.
 
 * **The candidates in this election were:**
-    * Raymon Anthony Doane
-    * Diana DeGette
-    * Charles Casper Stockham 
+    * **Raymon Anthony Doane**
+    * **Diana DeGette**
+    * **Charles Casper Stockham** 
 
         <space>
 
@@ -114,20 +114,25 @@
 
         <space>
 
-        After getting the list of candidate, we are able to create the a dictionary, like we did earlier, containing the candidate names as `keys` and their total votes received as their `values`. We will also find `vote_percentage1` and the `winner` the same way we did for county names.
-
-            votesEach1 = dict((name, len([1 for i in rows if name in i])) for name in candidates)
-
-            vote_percentage1 = dict((name, (float(votesEach1[name]) / float(total_votes) * 100)) for name in candidates)
-
- <space>   
-
 * **The winner of the election was:**
     * **Diana DeGette**, who received **73.8%** of the vote and **272,892** number of votes.
 
+        <space>
 
+    ##### **Vote Dictionary (Candidates):**
 
-            winner = [i for i, j in vote_percentage1.items() if j == max(vote_percentage1[i] for i in candidates)][0]
+    After getting the list of candidate, we are able to create the a dictionary, like we did earlier, containing the candidate names as `keys` and their total votes received as their `values`. We will also find `vote_percentage1` and the `winner` the same way we did for county names.
+
+        votesEach1 = dict((name, len([1 for i in rows if name in i])) for name in candidates)
+
+    <space>   
+
+    ##### **Vote Dictionary (Candidates):**
+    To get our final result for the winner of the election, we will repeat our process that we did for `maxcounty` but, now we will be using our data for the candidates.
+
+        vote_percentage1 = dict((name, (float(votesEach1[name]) / float(total_votes) * 100)) for name in candidates)
+
+        winner = [i for i, j in vote_percentage1.items() if j == max(vote_percentage1[i] for i in candidates)][0]
 ---
 
 ### **Output**
