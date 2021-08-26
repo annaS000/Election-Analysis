@@ -30,8 +30,8 @@ with open(file_to_load) as election_data:
     counties =  {i[1] for i in rows} 
 
 # Name dictionary for votes per candidate and county
-votesEach1 = dict((name, len([1 for i in rows if name in i])) for name in candidates)
-votesEach2 = dict((name, len([1 for i in rows if name in i])) for name in counties)
+votesEach1 = dict((name, sum(1 for i in rows if name in i)) for name in candidates)
+votesEach2 = dict((name, sum(1 for i in rows if name in i)) for name in counties)
 
 
 # Percentage of votes for candidates and counties in a dictionary

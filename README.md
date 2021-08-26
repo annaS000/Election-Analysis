@@ -95,9 +95,9 @@
      ##### **Vote Dictionary (Counties):**
     From our list of county names, we can create a dictionary containing the county names as `keys` and their total votes received as their `values`.
 
-        votesEach2 = dict((name, len([1 for i in rows if name in i])) for name in counties)
+        votesEach2 = dict((name, sum(1 for i in rows if name in i)) for name in counties)
         
-    > You can see here the dictionary is created with the function `dict()` by taking in a generator expression that creates tuples. The first element of the tuple is the county's name (the `keys`) and the second element will be the number of votes (the `values`). The values are being calculated by making lists of 1s for each county name. A one is placed in the list each time the current counties name is found in an element of `rows`. Then, by taking the lengths of these lists we have our number of votes per county.  
+    > You can see here the dictionary is created with the function `dict()` by taking in a generator expression that creates tuples. The first element of the tuple is the county's name (the `keys`) and the second element will be the number of votes (the `values`). The values are being calculated by summing 1s for each county name. A one is generated each time the current counties name is found in an element of `rows`. Then, by taking the sums of these generator expressions we have our number of votes per county.  
 
     ##### **Percentage Dictionary (Counties):**
     To get the vote percentages of each county, we can create another dictionary that will utilize `votesEach2`, `total_votes`, and `counties` to store the data. Then `maxcounty` will find us the county with the highest percentage of votes.
@@ -123,7 +123,7 @@
 
     After getting the list of candidate, we are able to create the a dictionary, like we did earlier, containing the candidate names as `keys` and their total votes received as their `values`. We will also find `vote_percentage1` and the `winner` the same way we did for county names.
 
-        votesEach1 = dict((name, len([1 for i in rows if name in i])) for name in candidates)
+        votesEach1 = dict((name, sum(1 for i in rows if name in i)) for name in candidates)
 
     <space>   
 
@@ -148,11 +148,9 @@
 
 ---
 
-Thanks to Python the code created for this project is a simple way to find results quickly. By making a few adjustments, we can create a script that is adaptable and can read and write for any election the data is coming from. Having an efficient well-tested code to compute results can reduce the time it takes to conduct an analysis and can be used as a way to decrease human error. Additionally, [Python](https://www.python.org/about/) is one of the most popular, free, and open-source programming languages, making this code highly accessible to anyone that would like to use it.
+Thanks to Python, the code created for this project is a simple and user friendly way to find results quickly. By making a few adjustments, we can create a script that is adaptable and can read and write for any election the data is coming from. Having an efficient well-tested code to compute results can reduce the time it takes to conduct an analysis and can be used as a way to decrease human error. Additionally, [Python](https://www.python.org/about/) is one of the most popular, free, and open-source programming languages, making this code highly accessible to anyone that would like to use it!
 
-#### **Examples:**
-1. A way to make a script reusable is to create a function that is not specific to the data. That way it can be used in any election regardless of where the election is being held, the amount of candidates running, or number of votes cast. This code can easily be converted into a function that will take in a data frame and return our results, as long as the columns are in the correct order. Check out my function for any election[here]()
+#### **Examples of Alterations:**
+1. A way to make a script reusable is to split up the code into several functions that are not specific to the data. That way it can be used in any election regardless of where the election is being held, the amount of candidates running, or number of votes cast. This code can easily be converted into a function that will take in a data frame and return our results, as long as the columns are in the correct order. Check out my functions for any election [here](https://github.com/annaS000/Election-Analysis/blob/main/election_function.py)!
 
-
-
-2. text
+2. Another way to improve code for reusability is to consider how much memory your code is using during execution. If you would like to work on larger data set, you will have to make sure you are going to cause your computer to freeze. I have already altered the original code to condense many of the lines of into list comprehensions, dictionaries, and generator expressions to ultimately reduce the amount of 
