@@ -121,7 +121,7 @@
 
     ##### **Vote Dictionary (Candidates):**
 
-    After getting the list of candidate, we are able to create the a dictionary, like we did earlier, containing the candidate names as `keys` and their total votes received as their `values`. We will also find `vote_percentage1` and the `winner` the same way we did for county names.
+    After getting the list of candidates, we are able to create a dictionary, like we did earlier, containing the candidate names as `keys` and their total votes received as their `values`. We will also find `vote_percentage1` and the `winner` the same way we did for county names.
 
         votesEach1 = dict((name, sum(1 for i in rows if name in i)) for name in candidates)
 
@@ -148,7 +148,7 @@
 
 ---
 
-Thanks to Python, the code created for this project is a simple and user friendly way to find results quickly. By making a few adjustments, we can create a script that is adaptable and can read and write for any election the data is coming from. Having an efficient well-tested code to compute results can reduce the time it takes to conduct an analysis and can be used as a way to decrease human error. Additionally, [Python](https://www.python.org/about/) is one of the most popular, free, and open-source programming languages, making this code highly accessible to anyone that would like to use it!
+Thanks to Python, the code created for this project is a simple and user friendly way to find results quickly. By making a few adjustments, we can create a script that is adaptable and can read and write for any election the data is coming from. Having an efficient well-tested code to compute results can reduce the time it takes to conduct an analysis and can be used as a way to decrease human error. Additionally, [Python](https://www.python.org/about/) is one of the most popular free, open-source programming languages, making this code highly accessible to anyone that would like to use it!
 
 #### **Examples of Alterations:**
 1. A way to make a script reusable is to split up the code into several functions that are not specific to the data. That way it can be used in any election regardless of where the election is being held, the amount of candidates running, or number of votes cast. This code can easily be converted into a function that will take in a data frame and return our results, as long as the columns are in the correct order. Check out my functions for any election [here](https://github.com/annaS000/Election-Analysis/blob/main/election_function.py)!
